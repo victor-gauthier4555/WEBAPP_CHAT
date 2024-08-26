@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Welcome to WEBAPP_CHAT</h1>
+    <p>This is a simple multi-user chat application. Please <a href="{{ url_for('login') }}">log in</a> to start chatting.</p>
+{% endblock %}

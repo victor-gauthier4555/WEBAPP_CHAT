@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Chat - {{ channel.capitalize() }}{% endblock %}
+
+{% block content %}
+    <h2>Chat - {{ channel.capitalize() }}</h2>
+    <div class="chat-messages">
+        {% for message in messages %}
+            <p><strong>{{ message.user.username }}:</strong> {{ message.text }}</p>
+            {% if message.image_file %}
+                <img src="{{ url_for('static', filename='uploads/' ~ message.image_file) }}" alt="User Image" style="max-width: 300px; max-height: 300px;">
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <form method="POST" action="{{ url_for('chat', channel=channel) }}" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.text.label }}<br>
+            {{ form.text(rows=3, cols=40) }}<br>
+            {{ form.image.label }}<br>
+            {{ form.image() }}<br>
+            {{ form.submit() }}
+        </div>
+    </form>
+{% endblock %}
+
+
