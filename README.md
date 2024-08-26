@@ -24,8 +24,8 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants :
    Sur macOS/Linux : 
 
    ```bash
-   python3 -m venv venv
-   source venv/bin/activate
+   export FLASK_APP=app.py
+
    ```
    Sur Windows : 
    
